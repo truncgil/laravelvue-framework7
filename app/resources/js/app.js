@@ -1,32 +1,24 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+/* my-app.js */
 
-require('./bootstrap');
+import { createApp } from 'vue'
 
-window.Vue = require('vue').default;
+// Import F7 Bundle
+import Framework7 from 'framework7/lite-bundle'
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+// Import F7-Vue Plugin Bundle (with all F7 components registered)
+import Framework7Vue, { registerComponents } from 'framework7-vue/bundle'
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+// Init F7-Vue Plugin
+Framework7.use(Framework7Vue);
 
-Vue.component('truncgil', require('./components/Truncgil.vue').default);
+// Import Main App component
+import App from './components/Truncgil.vue';
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+// Init App
+const app = createApp(App);
 
-const app = new Vue({
-    el: '#app',
-});
+// Register all Framework7 Vue components
+registerComponents(app);
+
+// Mounte Vue App
+app.mount('#app');
