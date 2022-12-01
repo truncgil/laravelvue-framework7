@@ -1,9 +1,33 @@
 /* Custom color theme properties */
 :root {
-  --f7-theme-color: #ffbe09;
+
+  --f7-theme-page-background:black;
+  --f7-theme-color: #ff4f09;
   --f7-theme-color-rgb: 255, 190, 9;
-  --f7-theme-color-shade: #dfa400;
-  --f7-theme-color-tint: #ffc932;
+  --f7-theme-color-shade: #db450a;
+  --f7-theme-color-tint: #ff4f09;
+}
+.demo-card-header-pic .card-header {
+  height: 300px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+}
+.demo-card-header-pic .card-header span {
+  color:black;
+  background:#fff
+}
+.card-content {
+  height:50px;
+  overflow:hidden;
+}
+.cover {
+  width: 100%;;
+  height:300px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Your app custom styles here */
