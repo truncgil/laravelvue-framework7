@@ -1,6 +1,7 @@
 <template>
-<f7-page no-toolbar no-navbar no-swipeback login-screen>
-  <f7-login-screen-title>Framework7</f7-login-screen-title>
+<f7-page no-toolbar tab no-tabbar no-navbar no-swipeback login-screen>
+  <f7-login-screen-title>Truncgil E-Commerce App</f7-login-screen-title>
+  <f7-block-footer>Please login <br></f7-block-footer>
   <f7-list form>
     <f7-list-input
       label="Username"
