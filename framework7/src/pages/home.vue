@@ -1,66 +1,66 @@
 <template>
-  <f7-page name="home">
-    <!-- Top Navbar -->
-    <f7-navbar large :sliding="false">
-      <f7-nav-left>
-        <f7-link icon-ios="f7:menu" icon-aurora="f7:menu" icon-md="material:menu" panel-open="left"></f7-link>
-      </f7-nav-left>
-      <f7-nav-title sliding>Laravel Framework7 Vue </f7-nav-title>
-      <f7-nav-right>
-        <f7-link icon-ios="f7:menu" icon-aurora="f7:menu" icon-md="material:menu" panel-open="right"></f7-link>
-      </f7-nav-right>
-      <f7-nav-title-large>Laravel Framework7 Vue </f7-nav-title-large>
-    </f7-navbar>
-
-    <!-- Page content-->
-    <f7-block strong>
-      <p>This is an example of tabs-layout application. The main point of such tabbed layout is that each tab contains independent view with its own routing and navigation.</p>
-
-      <p>Each tab/view may have different layout, different navbar type (dynamic, fixed or static) or without navbar like this tab.</p>
+  <f7-page>
+    <f7-navbar title="Login Screen"></f7-navbar>
+    <f7-block>
+      <p>Framework7 comes with ready to use Login Screen layout. It could be used inside of page or inside of popup (Embedded) or as a standalone overlay:</p>
     </f7-block>
-    <f7-block-title>Navigation</f7-block-title>
+  
     <f7-list>
-      <f7-list-item link="/about/" title="About"></f7-list-item>
-      <f7-list-item link="/form/" title="Form"></f7-list-item>
+      <f7-list-item link="/login/" title="As Separate Page"></f7-list-item>
     </f7-list>
-
-    <f7-block-title>Modals</f7-block-title>
-    <f7-block strong>
-      <f7-row>
-        <f7-col width="50">
-          <f7-button fill raised popup-open="#my-popup">Popup</f7-button>
-        </f7-col>
-        <f7-col width="50">
-          <f7-button fill raised login-screen-open="#my-login-screen">Login Screen</f7-button>
-        </f7-col>
-      </f7-row>
+  
+    <f7-block>
+      <f7-button raised large fill login-screen-open=".demo-login-screen">As Overlay</f7-button>
     </f7-block>
-
-    <f7-block-title>Panels</f7-block-title>
-    <f7-block strong>
-      <f7-row>
-        <f7-col width="50">
-          <f7-button fill raised panel-open="left">Left Panel</f7-button>
-        </f7-col>
-        <f7-col width="50">
-          <f7-button fill raised panel-open="right">Right Panel</f7-button>
-        </f7-col>
-      </f7-row>
+  
+    <f7-block>
+      <f7-button raised large fill @click="loginScreenOpened = true">Open Via Prop Change</f7-button>
     </f7-block>
-
-    <f7-list>
-      <f7-list-item
-        title="Dynamic (Component) Route"
-        link="/dynamic-route/blog/45/post/125/?foo=bar#about"
-      ></f7-list-item>
-      <f7-list-item
-        title="Default Route (404)"
-        link="/load-something-that-doesnt-exist/"
-      ></f7-list-item>
-      <f7-list-item
-        title="Request Data & Load"
-        link="/request-and-load/user/123456/"
-      ></f7-list-item>
-    </f7-list>
+  
+    <f7-login-screen class="demo-login-screen" :opened="loginScreenOpened" @loginscreen:closed="loginScreenOpened = false">
+      <f7-page login-screen>
+        <f7-login-screen-title>Framework7</f7-login-screen-title>
+        <f7-list form>
+          <f7-list-input
+            label="Username"
+            type="text"
+            placeholder="Your username"
+            :value="username"
+            @input="username = $event.target.value"
+          ></f7-list-input>
+          <f7-list-input
+            label="Password"
+            type="password"
+            placeholder="Your password"
+            :value="password"
+            @input="password = $event.target.value"
+          ></f7-list-input>
+        </f7-list>
+        <f7-list>
+          <f7-list-button @click="signIn">Sign In</f7-list-button>
+          <f7-block-footer>Some text about login information.<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</f7-block-footer>
+        </f7-list>
+      </f7-page>
+    </f7-login-screen>
   </f7-page>
-</template>
+  </template>
+  <script>
+    import { f7 } from 'framework7-vue';
+  
+    export default {
+      data() {
+        return {
+          loginScreenOpened: false,
+          username: '',
+          password: '',
+        };
+      },
+      methods: {
+        signIn() {
+          f7.dialog.alert(`Username: ${self.username}<br>Password: ${self.password}`, () => {
+            f7.loginScreen.close();
+          });
+        },
+      },
+    }
+  </script>

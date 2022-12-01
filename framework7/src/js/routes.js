@@ -5,6 +5,7 @@ import FormPage from '../pages/form.vue';
 import CatalogPage from '../pages/catalog.vue';
 import ProductPage from '../pages/product.vue';
 import SettingsPage from '../pages/settings.vue';
+import LoginScreenPage from '../pages/login-screen-page.vue';
 
 import DynamicRoutePage from '../pages/dynamic-route.vue';
 import RequestAndLoad from '../pages/request-and-load.vue';
@@ -13,7 +14,7 @@ import NotFoundPage from '../pages/404.vue';
 var routes = [
   {
     path: '/',
-    component: HomePage,
+    component: LoginScreenPage,
   },
   {
     path: '/about/',
@@ -34,6 +35,10 @@ var routes = [
   {
     path: '/settings/',
     component: SettingsPage,
+  },
+  {
+    path: '/login/',
+    component: LoginScreenPage,
   },
 
   {
@@ -56,17 +61,17 @@ var routes = [
       setTimeout(function () {
         // We got user data from request
         var user = {
-          firstName: 'Vladimir',
-          lastName: 'Kharlampidi',
-          about: 'Hello, i am creator of Framework7! Hope you like it!',
+          firstName: 'Umit',
+          lastName: 'Tunc',
+          about: 'Hello, i am developer of Vue and Framework7! Hope you like it!',
           links: [
             {
-              title: 'Framework7 Website',
-              url: 'http://framework7.io',
+              title: 'Truncgil Web Site',
+              url: 'http://truncgil.com.tr',
             },
             {
-              title: 'Framework7 Forum',
-              url: 'http://forum.framework7.io',
+              title: 'Truncgil Blog',
+              url: 'http://truncgil.com.tr/blog',
             },
           ]
         };
