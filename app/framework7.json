@@ -1,0 +1,20 @@
+{
+  "cwd": "E:\\Works\\xampp7\\htdocs\\laravelvue\\app",
+  "type": [
+    "web",
+    "pwa"
+  ],
+  "name": "Laravel Vue Framework7",
+  "framework": "vue",
+  "template": "tabs",
+  "bundler": "vite",
+  "cssPreProcessor": false,
+  "theming": {
+    "customColor": true,
+    "color": "#ffab2a",
+    "darkTheme": false,
+    "iconFonts": true,
+    "fillBars": false
+  },
+  "customBuild": false
+}

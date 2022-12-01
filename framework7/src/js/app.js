@@ -1,7 +1,6 @@
 // Import Vue
 import { createApp } from 'vue';
 
-
 // Import Framework7
 import Framework7 from 'framework7/lite-bundle';
 
@@ -12,11 +11,11 @@ import Framework7Vue, { registerComponents } from 'framework7-vue/bundle';
 import 'framework7/css/bundle';
 
 // Import Icons and App Custom Styles
-import 'material-icons/iconfont/material-icons.scss';
+import 'material-icons/iconfont/material-icons.css';
 import '../css/app.css';
 
 // Import App Component
-import App from './components/Truncgil.vue';
+import App from '../components/app.vue';
 
 // Init Framework7-Vue Plugin
 Framework7.use(Framework7Vue);
