@@ -102,7 +102,7 @@
 
       // Framework7 Parameters
       const f7params = {
-        name: 'Laravel Framework7 Vue ', // App name
+        name: 'Truncgil E-Commerce App ', // App name
         theme: 'auto', // Automatic theme detection
 
 
