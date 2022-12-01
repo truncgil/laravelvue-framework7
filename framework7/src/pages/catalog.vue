@@ -6,8 +6,14 @@
         v-for="(product) in products"
         :key="product.id"
         :title="product.title"
+        :after="product.price"
+        :text="product.description"
         :link="`/product/${product.id}/`"
-      ></f7-list-item>
+      >
+      <template #media>
+        <img :src="`${product.picture}/`" width="80" />
+      </template>
+    </f7-list-item>
     </f7-list>
     <f7-block v-if="products.length === 3">
       <f7-button fill @click="addProduct">Add Product</f7-button>
